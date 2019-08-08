@@ -1,13 +1,20 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const SavedList = props => (
+ <>
   <div className="saved-list">
     <h3>Saved Movies:</h3>
     {props.list.map(movie => (
-      <span className="saved-movie">{movie.title}</span>
+      <Link to = {`/movies/${movie.id}`} key = {movie.id}>
+        <span className = "saved-movie"> {movie.title} </span>
+      </Link>
+
     ))}
-    <div className="home-button">Home</div>
+    <Link exact to = "/" className="home-button">Home</Link>
+    
   </div>
+</>
 );
 
 export default SavedList;
